@@ -3,7 +3,7 @@
 
 ## Description
 This program is intended to be a fully playable version of the board game Acquire for cs2263 class project.
-From boardgamegeek.com, "In Acquire, each player strategically invests in businesses, trying to retain a majority of stock. As the businesses grow with tile placements, they also start merging, giving the majority stockholders of the acquired business sizable bonuses, which can then be used to reinvest into other chains. All of the investors in the acquired company can then cash in their stocks for current value or trade them 2-for-1 for shares of the newer larger business. The game is a race to acquire the greatest wealth."
+   From boardgamegeek.com, "In Acquire, each player strategically invests in businesses, trying to retain a majority of stock. As the businesses grow with tile placements, they also start merging, giving the majority stockholders of the acquired business sizable bonuses, which can then be used to reinvest into other chains. All of the investors in the acquired company can then cash in their stocks for current value or trade them 2-for-1 for shares of the newer larger business. The game is a race to acquire the greatest wealth."
 Currently the project is in a very alpha state and is unplayable.
 
 #### Table of Contents
@@ -18,7 +18,7 @@ Currently the project is in a very alpha state and is unplayable.
 
 
 ### Installation
--
+- This project was made with JDK 17
 
 
 ### Usage
