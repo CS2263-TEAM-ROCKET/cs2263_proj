@@ -32,9 +32,15 @@ This project is not currently accepting any external contributors.
 #### Credits
 - Authors
   - Hunter Chase
-    - Contact info
-      - Email - hchase333@gmail.com / chashunt@isu.edu
-      - Phone - 208-206-1454
+    - *Contact info*
+    - Email - hchase333@gmail.com / chashunt@isu.edu
+    - Phone - 208-206-1454
+
+  - Christopher Finco
+    - *Contact info*
+
+  - Eric Peterson
+    - *Contact info*
 
 
 #### MIT License
