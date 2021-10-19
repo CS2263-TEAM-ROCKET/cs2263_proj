@@ -9,11 +9,24 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'checkstyle'
 }
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+}
+
+apply plugin: 'checkstyle'
+checkstyle {
+    toolVersion '9.0.1'
+    configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
+}
+checkstyleMain {
+    source ='src/main/java'
+}
+checkstyleTest {
+    source ='src/test/java'
 }
 
 dependencies {
