@@ -3,6 +3,8 @@
  */
 package edu.isu.cs2263.proj;
 
+import edu.isu.cs2263.proj.JavaFX.FX;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
@@ -10,5 +12,6 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        FX.classApp(args);
     }
 }
