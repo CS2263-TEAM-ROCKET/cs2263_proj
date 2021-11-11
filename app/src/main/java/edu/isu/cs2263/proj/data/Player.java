@@ -4,31 +4,34 @@ import lombok.*;
 
 import java.util.List;
 
-@NoArgsConstructor @AllArgsConstructor @ToString
+@RequiredArgsConstructor @AllArgsConstructor @ToString
 public class Player {
 
     //Variables
-    @Getter @Setter public int money = 0;
+    @Getter @Setter private int money = 0;
 
     @Getter @Setter public List<Tile> hand;
 
     @Getter @Setter public List<Stock> stocks;
+
+    @Getter @Setter @NonNull public final int playerId;
 
     //Methods
     public void playTile() {
 
     }
 
-    public void buyStock() {
-
+    public void buyStock(Corporation corporation) {
+        Stock boughtStock = corporation.playerBuysStock();
+        stocks.add(boughtStock);
     }
 
     public void trade() {
 
     }
 
-    public void drawTile() {
-
+    public void addTile(Tile tile) {
+        hand.add(tile);
     }
 
     public void discardTiles() {
