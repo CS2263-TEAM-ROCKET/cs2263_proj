@@ -26,4 +26,8 @@ public class GameBoard {
     public void playTile(Tile tile) {
         playedTiles.add(tile);
     }
+
+    public void tileReturn(Tile tile) {
+        deck.add(tile);
+    }
 }

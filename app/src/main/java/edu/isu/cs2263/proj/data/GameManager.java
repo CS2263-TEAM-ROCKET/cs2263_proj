@@ -2,43 +2,48 @@ package edu.isu.cs2263.proj.data;
 
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor @AllArgsConstructor @ToString
+@NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor @ToString
 public class GameManager {
 
     //Variables
-    @Getter @Setter private List<Player> players;
+    @Getter @Setter @NonNull private PlayerList players;
 
-    @Getter @Setter private GameBoard board;
-
-    @Getter @Setter private boolean visibility = true;
+    @Getter @Setter @NonNull private GameBoard board;
 
     //Methods
-    public Player chooseFirstPlayer() {
-        return players.get(0); //This is just a placeholder for now. Needs to get random from the full list
-    }
-
     public void pay() {
 
     }
 
-    public List<Tile> setupGameBoard(int numPlayers, boolean visible) {
-        for(int i = 0; i <= numPlayers - 1; i++){ //Creates all the players
-            Player player = new Player(i);
-            for(int j = 0; j <= 7 - 1; j++) { //Fills the players hands with cards
+    public int firstPlayer() {
+        return players.chooseFirstPlayer();
+    }
+
+    public Player idToPlayer(int playerId) {
+        return players.idToPlayer(playerId);
+    }
+
+    public Player currentPlayer() { //This is for direct alterations
+        return players.getCurrentPlayer();
+    }
+
+    public int currentPlayerId() { //This is for direct alterations
+        return players.getCurrentPlayerId();
+    }
+
+    public void initPlayers(int numPlayers) {
+        players.addPlayers(numPlayers);
+        List<Player> everyone = players.getPlayers();
+        for (Player player : everyone){
+            for (int j = 0; j <= 7 - 1; j++) { //Fills the players hands with cards
                 player.addTile(drawTile());
-            }
-            players.add(player);
-            }
-        this.setVisibility(visible); //Sets hand visibility
-        return board.currentBoard();
+        }
+        }
     }
 
-    public void changeTurn() {
 
-    }
 
     public void playTurn() {
 
@@ -52,11 +57,22 @@ public class GameManager {
     return board.getRandomTile();
     }
 
+    public void returnTile(Tile tile) {
+        board.tileReturn(tile);
+    }
+
     public void mergeCorporations() {
 
     }
 
-    public void checkGameEnd() {
+    public boolean checkGameEnd() {
+        boolean endable = false;
+        //need to add code here to check status
+        return endable;
+    }
 
+    public List<String> calculateScores() {
+        List<String> scores = null; //This needs changed to grab scores
+        return scores;
     }
 }

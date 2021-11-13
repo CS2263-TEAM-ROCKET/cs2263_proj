@@ -14,7 +14,7 @@ public class Player {
 
     @Getter @Setter public List<Stock> stocks;
 
-    @Getter @Setter @NonNull public final int playerId;
+    @Getter public final int playerId;
 
     //Methods
     public void playTile() {
@@ -34,15 +34,20 @@ public class Player {
         hand.add(tile);
     }
 
-    public void discardTiles() {
+    public boolean discardTiles(Tile tile) {
+        boolean tileDiscarded = false;
+        if(hand.contains(tile)) {
+            hand.remove(tile);
+            tileDiscarded = true;
+        }
+        return tileDiscarded;
+    }
+
+    public void endTurn() { // Not sure if we want this here or in GM
 
     }
 
-    public void endTurn() {
-
-    }
-
-    public void endGame() {
+    public void endGame() { // Not sure if we want this here or in GM
 
     }
 }
