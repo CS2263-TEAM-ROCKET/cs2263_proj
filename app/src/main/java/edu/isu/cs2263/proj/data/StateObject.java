@@ -2,7 +2,7 @@ package edu.isu.cs2263.proj.data;
 
 import lombok.*;
 
-@NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor @ToString
+@NoArgsConstructor @AllArgsConstructor @ToString
 public class StateObject {
 
     //Variables // This all needs to be filled out for saving to retain a state

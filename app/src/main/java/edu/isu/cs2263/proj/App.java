@@ -12,6 +12,10 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-        FX.classApp(args);
+
+        boolean launchUi = false;
+        if (launchUi){
+            FX.classApp(args);
+        }
     }
 }

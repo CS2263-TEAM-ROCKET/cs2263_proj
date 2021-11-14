@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
 
-@NoArgsConstructor @AllArgsConstructor @ToString
+@NoArgsConstructor @AllArgsConstructor
 public class Facade {
 
     //Variables
@@ -31,7 +31,7 @@ public class Facade {
         return gameManager.firstPlayer();
     }
 
-    public void getCurrentPlayer() {
+    public void CurrentPlayer() {
         currentPlayer = gameManager.currentPlayer();
     }
 
@@ -97,6 +97,6 @@ public class Facade {
         gameManager = application.getManagerState();
         board = application.getBoard();
         gameManager.setPlayers(application.getPlayers());
-        this.getCurrentPlayer();
+        this.CurrentPlayer();
     }
 }

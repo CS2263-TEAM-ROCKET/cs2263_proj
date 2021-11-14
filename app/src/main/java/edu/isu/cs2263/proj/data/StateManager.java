@@ -12,7 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-@NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor @ToString
+@NoArgsConstructor @AllArgsConstructor @ToString
 public class StateManager {
 
     //Variables

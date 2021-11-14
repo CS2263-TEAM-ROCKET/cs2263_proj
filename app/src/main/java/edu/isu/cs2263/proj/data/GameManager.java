@@ -4,7 +4,7 @@ import lombok.*;
 
 import java.util.List;
 
-@NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor @ToString
+@NoArgsConstructor @RequiredArgsConstructor @ToString
 public class GameManager {
 
     //Variables
