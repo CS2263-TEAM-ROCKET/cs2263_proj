@@ -1,6 +1,5 @@
 package edu.isu.cs2263.proj.data;
 
-import com.google.gson.Gson;
 import lombok.*;
 
 import java.io.File;
@@ -10,8 +9,6 @@ import java.io.FileNotFoundException;
 public class Application {
 
     //Variables
-    @Getter @Setter public GameManager manager;
-
     @Getter @Setter public GameSettings settings;
 
     @Getter @Setter public StateManager stateManager;
@@ -20,16 +17,10 @@ public class Application {
 
     //Methods
     //initialization methods
-
-    public GameManager startGame(int players, boolean visible) {
+    public int startGame(int players, boolean visible) {
         settings.setPlayerAmount(players);
         settings.setHiddenAssets(visible);
-        initManager(settings.getPlayerAmount());
-        return getManager();
-    }
-
-    public void initManager(int players) {
-        manager.initPlayers(players);
+        return settings.getPlayerAmount();
     }
 
     //State methods
@@ -43,5 +34,24 @@ public class Application {
             loaded = true;
         }
         return loaded;
+    }
+
+    public void updateState(GameManager gameManager, GameBoard gameBoard, PlayerList players) {
+        state.setSettings(settings);
+        state.setManager(gameManager);
+        state.setBoard(gameBoard);
+        state.setPlayers(players);
+    }
+
+    public GameManager getManagerState() {
+        return state.getManager();
+    }
+
+    public PlayerList getPlayers() {
+        return state.getPlayers();
+    }
+
+    public GameBoard getBoard() {
+        return state.getBoard();
     }
 }

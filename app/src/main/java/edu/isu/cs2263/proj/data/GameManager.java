@@ -29,7 +29,7 @@ public class GameManager {
         return players.getCurrentPlayer();
     }
 
-    public int currentPlayerId() { //This is for direct alterations
+    public int currentPlayerId() { //This is for references
         return players.getCurrentPlayerId();
     }
 
@@ -45,8 +45,8 @@ public class GameManager {
 
 
 
-    public void playTurn() {
-
+    public Player nextTurn() {
+        return players.nextTurn();
     }
 
     public void playTile(Tile tile) {

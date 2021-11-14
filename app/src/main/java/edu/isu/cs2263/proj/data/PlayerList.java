@@ -49,8 +49,17 @@ public class PlayerList {
         return players;
     }
 
-    public void nextTurn () {
-        currentPlayer = turnTracker.next();
+    public Player nextTurn () {
+        if (turnTracker.hasNext()) {
+            currentPlayer = turnTracker.next();
+        }
+        else {
+            while (turnTracker.hasPrevious()) {
+                turnTracker.previous();
+                currentPlayer = turnTracker.next();
+            }
+        }
+        return currentPlayer;
     }
 }
 

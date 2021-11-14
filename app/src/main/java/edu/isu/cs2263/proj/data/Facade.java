@@ -21,13 +21,18 @@ public class Facade {
     //Methods
     //Methods for new game
     public List<Tile> setupGame(int players, boolean visible) {
-        gameManager = application.startGame(players, visible);
+        gameManager.initPlayers(application.startGame(players, visible));
         board = gameManager.getBoard();
         return board.currentBoard();
     }
 
+    //Methods for players
     public int chooseFirstPlayer() {
         return gameManager.firstPlayer();
+    }
+
+    public void getCurrentPlayer() {
+        currentPlayer = gameManager.currentPlayer();
     }
 
     //Methods for playing a tile
@@ -64,6 +69,12 @@ public class Facade {
         return tradedTile;
     }
 
+    public int nextTurn() {
+        currentPlayer = gameManager.nextTurn();
+        application.updateState(gameManager, board, gameManager.getPlayers());
+        return currentPlayer.getPlayerId();
+    }
+
     //Methods for ending the game
     public boolean checkGameEnd() {
         return gameManager.checkGameEnd();
@@ -80,5 +91,12 @@ public class Facade {
 
     public boolean load(File file) throws FileNotFoundException {
         return application.loadGame(file);
+    }
+
+    public void getState() {
+        gameManager = application.getManagerState();
+        board = application.getBoard();
+        gameManager.setPlayers(application.getPlayers());
+        this.getCurrentPlayer();
     }
 }
