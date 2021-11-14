@@ -11,4 +11,9 @@ public class Stock {
     @Getter @Setter public int price = 0;
 
     @Getter @Setter public Player owner;
+
+    //Methods
+    public int getValue() {
+       return corporation.getStockValue();
+    }
 }

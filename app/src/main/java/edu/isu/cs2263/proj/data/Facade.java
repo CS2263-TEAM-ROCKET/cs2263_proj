@@ -16,13 +16,12 @@ public class Facade {
 
     @Getter @Setter private Player currentPlayer;
 
-    @Getter @Setter private GameBoard board;
-
     //Methods
     //Methods for new game
     public List<Tile> setupGame(int players, boolean visible) {
-        gameManager.initPlayers(application.startGame(players, visible));
-        board = gameManager.getBoard();
+        int numberOfPlayers = application.startGame(players, visible);
+        gameManager.initialize(numberOfPlayers);
+        GameBoard board = gameManager.getBoard();
         return board.currentBoard();
     }
 
@@ -31,8 +30,8 @@ public class Facade {
         return gameManager.firstPlayer();
     }
 
-    public void CurrentPlayer() {
-        currentPlayer = gameManager.currentPlayer();
+    public int CurrentPlayer() {
+        return gameManager.currentPlayerId();
     }
 
     //Methods for playing a tile
@@ -71,7 +70,8 @@ public class Facade {
 
     public int nextTurn() {
         currentPlayer = gameManager.nextTurn();
-        application.updateState(gameManager, board, gameManager.getPlayers());
+
+        application.updateState(gameManager, gameManager.getBoard(), gameManager.getPlayers());
         return currentPlayer.getPlayerId();
     }
 
@@ -89,14 +89,15 @@ public class Facade {
         return application.saveGame(filePath, fileName);
     }
 
-    public boolean load(File file) throws FileNotFoundException {
-        return application.loadGame(file);
+    public void load(File file) throws FileNotFoundException {
+        application.loadGame(file);
+        this.getState();
     }
 
     public void getState() {
         gameManager = application.getManagerState();
-        board = application.getBoard();
+        gameManager.setBoard(application.getBoard());
         gameManager.setPlayers(application.getPlayers());
-        this.CurrentPlayer();
+        currentPlayer = gameManager.currentPlayer();
     }
 }

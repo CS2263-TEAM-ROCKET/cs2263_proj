@@ -28,12 +28,8 @@ public class Application {
         return stateManager.saveData(filePath, fileName, state);
     }
 
-    public boolean loadGame(File file) throws FileNotFoundException {
-        boolean loaded = false;
-        if (stateManager.loadData(file, state)) {
-            loaded = true;
-        }
-        return loaded;
+    public void loadGame(File file) throws FileNotFoundException {
+        state = stateManager.loadData(file);
     }
 
     public void updateState(GameManager gameManager, GameBoard gameBoard, PlayerList players) {

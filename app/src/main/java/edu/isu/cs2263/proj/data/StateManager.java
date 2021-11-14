@@ -60,8 +60,7 @@ public class StateManager {
     }
 
     //Methods for loading
-    public boolean loadData(File file, StateObject state) throws FileNotFoundException {
-        boolean loaded = false;
+    public StateObject loadData(File file) throws FileNotFoundException {
         Scanner scanner = new Scanner(file);
         StateObject newState = new StateObject();
         if (scanner.hasNext()) {
@@ -69,9 +68,7 @@ public class StateManager {
             newState = gson.fromJson(json, StateObject.class);
             scanner.close();
             System.out.println("File read.");
-            loaded = true;
         }
-        state = newState;
-        return loaded;
+        return newState;
     }
 }

@@ -33,17 +33,20 @@ public class GameManager {
         return players.getCurrentPlayerId();
     }
 
+    public void initialize(int numPlayers) {
+        this.initPlayers(numPlayers);
+        board.initialize();
+    }
+
     public void initPlayers(int numPlayers) {
         players.addPlayers(numPlayers);
         List<Player> everyone = players.getPlayers();
         for (Player player : everyone){
-            for (int j = 0; j <= 7 - 1; j++) { //Fills the players hands with cards
+            for (int j = 0; j <= 6 - 1; j++) { //Fills the players hands with cards
                 player.addTile(drawTile());
-        }
+            }
         }
     }
-
-
 
     public Player nextTurn() {
         return players.nextTurn();

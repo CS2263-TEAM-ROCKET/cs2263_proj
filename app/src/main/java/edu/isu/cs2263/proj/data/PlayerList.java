@@ -23,10 +23,6 @@ public class PlayerList {
         return getCurrentPlayer().getPlayerId();
     }
 
-    public Player currentPlayer() {
-        return getCurrentPlayer();
-    }
-
     public int getCurrentPlayerId() {
         return getCurrentPlayer().getPlayerId();
     }
@@ -41,12 +37,11 @@ public class PlayerList {
         return playerWithId;
     }
 
-    public List<Player> addPlayers(int numPlayers) {
+    public void addPlayers(int numPlayers) {
         for (int i = 0; i <= numPlayers - 1; i++) { //Creates all the players
             Player player = new Player(i);
             players.add(player);
         }
-        return players;
     }
 
     public Player nextTurn () {

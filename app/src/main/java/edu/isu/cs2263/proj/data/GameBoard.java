@@ -3,6 +3,7 @@ package edu.isu.cs2263.proj.data;
 import lombok.*;
 
 import java.util.List;
+import java.util.Random;
 
 @NoArgsConstructor @AllArgsConstructor @ToString
 public class GameBoard {
@@ -15,12 +16,28 @@ public class GameBoard {
     @Getter @Setter private List<Corporation> corporations;
 
     //Methods
+    public void initialize() {
+        char tileNum = 1;
+        char tileLet = 'A';
+        for (int i = 0; i <= 8; i++) {
+            for (int j = 0; j <=  8; j++) {
+                Tile newTile = new Tile(tileLet, tileNum);
+                deck.add(newTile);
+                tileLet++;
+            }
+            tileNum++;
+        }
+    }
+
     public List<Tile> currentBoard(){
         return getPlayedTiles();
     }
 
     public Tile getRandomTile(){
-        return deck.remove(0); //This index needs to be made random
+        Random random = new Random();
+        int numberOfTiles = playedTiles.size();
+        int randomIndex = random.nextInt(numberOfTiles);
+        return deck.remove(randomIndex);
     }
 
     public void playTile(Tile tile) {
