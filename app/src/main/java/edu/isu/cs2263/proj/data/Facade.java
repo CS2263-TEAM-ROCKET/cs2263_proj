@@ -106,6 +106,10 @@ public class Facade {
         trader.addTile(tradedTile);
     }
 
+    public Corporation merger (Corporation corp1, Corporation corp2) {
+        return gameManager.merger(corp1, corp2);
+    }
+
     /**
      * Ends the current turn and starts the next
      * @return an int representing the next player
@@ -114,6 +118,26 @@ public class Facade {
         currentPlayer = gameManager.nextTurn();
         application.updateState(gameManager, gameManager.getBoard(), gameManager.getPlayers());
         return currentPlayer.getPlayerId();
+    }
+
+    /**
+     * Trades a stock to one player to another for cash
+     * @param payer to buy stock
+     * @param paid to sell stock
+     * @param money amount stock is sold for
+     * @param stock stock traded
+     * @return boolean to confirm trade
+     */
+    public boolean TradeStocks(int payer, int paid, int money, Stock stock){
+        boolean success = false;
+        Player payingPlayer = gameManager.idToPlayer(payer);
+        Player payedPlayer = gameManager.idToPlayer(paid);
+        if (gameManager.pay(payingPlayer, payedPlayer, money)) {
+            payedPlayer.tradeAwayStock(stock);
+            payingPlayer.addStock(stock);
+            success = true;
+        }
+        return success;
     }
 
     //Methods for ending the game

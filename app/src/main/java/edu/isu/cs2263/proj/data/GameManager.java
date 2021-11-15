@@ -13,8 +13,13 @@ public class GameManager {
     @Getter @Setter @NonNull private GameBoard board;
 
     //Methods
-    public void pay() {
-
+    public boolean pay(Player giver, Player getter, int moneyPayed) {
+        boolean success = false;
+        if (giver.pay(moneyPayed)) {
+            getter.receiveMoney(moneyPayed);
+            success = true;
+        }
+        return success;
     }
 
     public int firstPlayer() {
@@ -88,8 +93,8 @@ public class GameManager {
         board.tileReturn(tile);
     }
 
-    public void mergeCorporations() {
-
+    public Corporation merger (Corporation corp1, Corporation corp2) {
+        return board.mergeCorporations(corp1, corp2);
     }
 
     /**

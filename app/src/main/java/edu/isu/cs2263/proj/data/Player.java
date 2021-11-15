@@ -57,6 +57,41 @@ public class Player {
         return tileDiscarded;
     }
 
+    /**
+     * removes money from player when paying for things
+     * @param payed money
+     * @return a boolean confirming that the player could pay
+     */
+    public boolean pay(int payed){
+        boolean didPay = false;
+        if(money >= payed) {
+            money -= payed;
+            didPay = true;
+        }
+        return didPay;
+    }
+
+    /**
+     * Adds money to the players funds
+     * @param moneyGot to add
+     */
+    public void receiveMoney(int moneyGot) {
+        money += moneyGot;
+    }
+
+    /**
+     * Removes a stock from the player
+     * @param stock to be removed
+     * @return a boolean to confirm
+     */
+    public boolean tradeAwayStock(Stock stock) {
+        return stocks.remove(stock);
+    }
+
+    public boolean addStock(Stock stock) {
+        return stocks.add(stock);
+    }
+
     public void endTurn() { // Not sure if we want this here or in GM
 
     }
