@@ -2,13 +2,14 @@ package edu.isu.cs2263.proj.data;
 
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * This class holds all the corporations
  */
-@NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor @ToString
+@NoArgsConstructor @AllArgsConstructor @ToString
 public class CorporationList {
 
     //Variables
@@ -20,6 +21,7 @@ public class CorporationList {
      * Initializes all the corps like they would be in the real game
      */
     public void initializeCorps() {
+        corporations = new ArrayList<>();
         Corporation newCorp = new Corporation("Tower", "Yellow", 200, 2000, 1000);
         initStocks(newCorp);
         corporations.add(newCorp);

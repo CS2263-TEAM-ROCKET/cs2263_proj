@@ -3,10 +3,7 @@ package edu.isu.cs2263.proj.data;
 import lombok.*;
 import org.checkerframework.checker.units.qual.C;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * This class represents the game board for the game
@@ -28,10 +25,12 @@ public class GameBoard {
      */
     public void initialize() {
         initTiles();
+        playedTiles = new ArrayList<>();
         corporations.initializeCorps();
     }
 
     public void initTiles() {
+        deck = new ArrayList<>();
         char tileNum = 1;
         char tileLet = 'A';
         for (int i = 0; i <= 8; i++) {
@@ -60,7 +59,7 @@ public class GameBoard {
      */
     public Tile getRandomTile() {
         Random random = new Random();
-        int numberOfTiles = playedTiles.size();
+        int numberOfTiles = deck.size();
         int randomIndex = random.nextInt(numberOfTiles);
         return deck.remove(randomIndex);
     }
@@ -81,6 +80,19 @@ public class GameBoard {
      */
     public void tileReturn(Tile tile) {
         deck.add(tile);
+    }
+
+    public void showBoard(){
+        char tileNum = 1;
+        char tileLet = 'A';
+        for (int i = 0; i <= 8; i++) {
+            for (int j = 0; j <= 8; j++) {
+                System.out.print(tileLet + tileNum + " ");
+                tileLet++;
+            }
+            System.out.println();
+            tileNum++;
+        }
     }
 
     /**

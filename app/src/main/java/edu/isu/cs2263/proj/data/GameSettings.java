@@ -5,7 +5,7 @@ import lombok.*;
 /**
  * Tracks basic game info
  */
-@NoArgsConstructor @AllArgsConstructor @ToString
+@NoArgsConstructor @ToString
 public class GameSettings { // This class is bare but could be added to
 
     //Variables

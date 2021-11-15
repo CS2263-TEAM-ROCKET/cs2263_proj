@@ -2,6 +2,7 @@ package edu.isu.cs2263.proj.data;
 
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -26,7 +27,7 @@ public class Corporation {
 
     @Getter @Setter public int tilesOwned = 0;
 
-    @Getter @Setter public List<Stock> stocks;
+    @Getter @Setter public List<Stock> stocks = new ArrayList<>();
 
     @Getter @Setter public boolean safe = false;
 

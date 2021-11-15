@@ -43,8 +43,9 @@ public class GameManager {
      * @param numPlayers the start the game with
      */
     public void initialize(int numPlayers) {
-        this.initPlayers(numPlayers);
+        board = new GameBoard();
         board.initialize();
+        this.initPlayers(numPlayers);
     }
 
     /**
@@ -52,6 +53,7 @@ public class GameManager {
      * @param numPlayers to start the game with
      */
     public void initPlayers(int numPlayers) {
+        players = new PlayerList();
         players.addPlayers(numPlayers);
         List<Player> everyone = players.getPlayers();
         for (Player player : everyone){
@@ -95,6 +97,10 @@ public class GameManager {
 
     public Corporation merger (Corporation corp1, Corporation corp2) {
         return board.mergeCorporations(corp1, corp2);
+    }
+
+    public void showBoard(){
+        board.showBoard();
     }
 
     /**

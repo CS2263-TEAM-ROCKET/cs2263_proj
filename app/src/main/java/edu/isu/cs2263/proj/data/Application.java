@@ -28,6 +28,7 @@ public class Application {
      * @return returns an int with the number of players
      */
     public int startGame(int players, boolean visible) {
+        settings = new GameSettings();
         settings.setPlayerAmount(players);
         settings.setHiddenAssets(visible);
         return settings.getPlayerAmount();

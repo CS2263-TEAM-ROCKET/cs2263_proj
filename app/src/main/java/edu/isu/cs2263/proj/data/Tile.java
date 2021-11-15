@@ -5,7 +5,7 @@ import lombok.*;
 /**
  * Used to make tile objects
  */
-@NoArgsConstructor @RequiredArgsConstructor @ToString
+@NoArgsConstructor @ToString
 public class Tile {
 
     //Constructor

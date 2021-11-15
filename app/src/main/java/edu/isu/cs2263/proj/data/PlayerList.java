@@ -2,6 +2,7 @@ package edu.isu.cs2263.proj.data;
 
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
@@ -9,13 +10,13 @@ import java.util.ListIterator;
 /**
  * Holds the players and does operations on them
  */
-@NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor @ToString
+@NoArgsConstructor @RequiredArgsConstructor @ToString
 public class PlayerList {
 
     //Variables
     @Getter @Setter @NonNull private List<Player> players;
 
-    @Getter @Setter @NonNull private ListIterator<Player> turnTracker = players.listIterator();
+    @Getter @Setter @NonNull private ListIterator<Player> turnTracker;
 
     @Getter @Setter @NonNull private Player currentPlayer;
 
@@ -26,6 +27,7 @@ public class PlayerList {
      * @return an int representing the first player
      */
     public int chooseFirstPlayer() {
+        turnTracker = players.listIterator();
         Collections.shuffle(players);
         setCurrentPlayer(turnTracker.next());
         return getCurrentPlayer().getPlayerId();
@@ -59,6 +61,7 @@ public class PlayerList {
      * @param numPlayers to make
      */
     public void addPlayers(int numPlayers) {
+        players = new ArrayList<Player>();
         for (int i = 0; i <= numPlayers - 1; i++) { //Creates all the players
             Player player = new Player(i);
             players.add(player);

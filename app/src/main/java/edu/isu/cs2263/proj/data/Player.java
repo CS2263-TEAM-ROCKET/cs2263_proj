@@ -2,6 +2,7 @@ package edu.isu.cs2263.proj.data;
 
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor @AllArgsConstructor @ToString
@@ -10,7 +11,7 @@ public class Player {
     //Variables
     @Getter @Setter private int money = 6000;
 
-    @Getter @Setter public List<Tile> hand;
+    @Getter @Setter public List<Tile> hand = new ArrayList<>();
 
     @Getter @Setter public List<Stock> stocks;
 

@@ -30,6 +30,7 @@ public class Facade {
      */
     public List<Tile> setupGame(int players, boolean visible) {
         int numberOfPlayers = application.startGame(players, visible);
+        gameManager = new GameManager();
         gameManager.initialize(numberOfPlayers);
         GameBoard board = gameManager.getBoard();
         return board.currentBoard();
@@ -51,6 +52,8 @@ public class Facade {
     public int CurrentPlayer() {
         return gameManager.currentPlayerId();
     }
+
+    public List<Stock> getStocks() {return currentPlayer.getStocks();}
 
     /**
      * This plays a given tile on the board
@@ -106,10 +109,6 @@ public class Facade {
         trader.addTile(tradedTile);
     }
 
-    public Corporation merger (Corporation corp1, Corporation corp2) {
-        return gameManager.merger(corp1, corp2);
-    }
-
     /**
      * Ends the current turn and starts the next
      * @return an int representing the next player
@@ -138,6 +137,10 @@ public class Facade {
             success = true;
         }
         return success;
+    }
+
+    public void showBoard() {
+        gameManager.showBoard();
     }
 
     //Methods for ending the game
