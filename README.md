@@ -1,5 +1,5 @@
 # cs2263_proj
-*version 0.0.1*
+*version 1.0.0*
 
 ## Description
 This program is intended to be a fully playable version of the board game Acquire for cs2263 class project.
@@ -37,9 +37,6 @@ This project is not currently accepting any external contributors.
     - Phone - 208-206-1454
 
   - Christopher Finco
-    - *Contact info*
-
-  - Eric Peterson
     - *Contact info*
 
 

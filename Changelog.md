@@ -10,6 +10,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -
 
 
+## [1.0.0] - 11-14-2021
+### Added
+-Basic functionality
+
+
+### Changed
+
+
+### Removed
+
+
+
+
 
 ## [0.0.1] - 9-12-2021
 ### Added
@@ -28,4 +41,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 [Unreleased]: https://github.com/Zeremer/cs2263_proj.git...Head
+[0.0.1]: https://github.com/Zeremer/cs2263_proj.git...v0.0.0
 [0.0.1]: https://github.com/Zeremer/cs2263_proj.git...v0.0.0
