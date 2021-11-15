@@ -2,6 +2,9 @@ package edu.isu.cs2263.proj.data;
 
 import lombok.*;
 
+/**
+ * Used a vessel for game state info to be saved as a file
+ */
 @NoArgsConstructor @AllArgsConstructor @ToString
 public class StateObject {
 

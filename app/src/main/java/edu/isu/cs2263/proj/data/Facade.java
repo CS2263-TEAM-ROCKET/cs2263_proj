@@ -6,6 +6,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+/**
+ * This is an in-between for the UI and the rest of the game
+ */
 @NoArgsConstructor @AllArgsConstructor
 public class Facade {
 
@@ -18,6 +21,13 @@ public class Facade {
 
     //Methods
     //Methods for new game
+
+    /**
+     * This sets up the initial game using some settings given
+     * @param players is the number of players. Defaults to 2.
+     * @param visible marks if assets should be hidden. Defaults to false.
+     * @return returns the played tiles on the gameBoard that will be needed by the UI.
+     */
     public List<Tile> setupGame(int players, boolean visible) {
         int numberOfPlayers = application.startGame(players, visible);
         gameManager.initialize(numberOfPlayers);
@@ -26,30 +36,53 @@ public class Facade {
     }
 
     //Methods for players
+    /**
+     * This returns the first player for starting the game. (This could probably be eliminated?)
+     * @return an int that represents the first player
+     */
     public int chooseFirstPlayer() {
         return gameManager.firstPlayer();
     }
 
+    /**
+     * This gets the current player
+     * @return an int that represents the current player
+     */
     public int CurrentPlayer() {
         return gameManager.currentPlayerId();
     }
 
-    //Methods for playing a tile
+    /**
+     * This plays a given tile on the board
+     * @param tile tile to be played
+     */
     public void playTile(Tile tile) {
         gameManager.playTile(tile);
     }
 
-    //Methods for buying a stock
+    /**
+     * This buys a stock in a corp for a player
+     * @param corporation the corp to buy from
+     * @param playerId the player buying
+     */
     public void buyStock(Corporation corporation, int playerId) {
         Player buyer = gameManager.idToPlayer(playerId);
         buyer.buyStock(corporation);
     }
 
-    //Methods for drawing new tiles
-    public void drawTile(Player player) {
+    /**
+     * Draws a new tile for the player at the beginning of each turn
+     * @param player player drawing the tile
+     */
+     public void drawTile(Player player) {
         player.addTile(gameManager.drawTile());
     }
 
+    /**
+     * Discards a given tile
+     * @param tile to be discarded
+     * @return boolean to confirm the tile was discarded
+     */
     public boolean discardTile(Tile tile) {
         boolean tileDiscarded = false;
         Player player = gameManager.currentPlayer();
@@ -60,44 +93,84 @@ public class Facade {
         return tileDiscarded;
     }
 
-    public Tile tradeTile(Tile tile) {
+    /**
+     * For trading tiles for new tiles for players
+     * @param tile tile to trade in
+     */
+    public void tradeTile(Tile tile) {
+        Player trader = gameManager.currentPlayer();
         Tile tradedTile = tile;
         if(this.discardTile(tile)) {
             tradedTile = gameManager.drawTile();
         }
-        return tradedTile;
+        trader.addTile(tradedTile);
     }
 
+    /**
+     * Ends the current turn and starts the next
+     * @return an int representing the next player
+     */
     public int nextTurn() {
         currentPlayer = gameManager.nextTurn();
-
         application.updateState(gameManager, gameManager.getBoard(), gameManager.getPlayers());
         return currentPlayer.getPlayerId();
     }
 
     //Methods for ending the game
+
+    /**
+     * Checks to see if the game can be ended
+     * @return a boolean that is true if the game can be ended
+     */
     public boolean checkGameEnd() {
         return gameManager.checkGameEnd();
     }
 
+    /**
+     * Used to end the game and determine scores
+     * @return the scoresheet as a list of strings
+     */
     public List<String> end() {
         return gameManager.calculateScores();
     }
 
     // Methods for save/load state
+
+    /**
+     * Saves the game with the current state
+     * @param filePath full path of directory to save at
+     * @param fileName specific file name to save in the directory
+     * @return a boolean to confirm save
+     */
     public boolean save(File filePath, String fileName) {
+        application.updateState(gameManager, gameManager.getBoard(), gameManager.getPlayers());
         return application.saveGame(filePath, fileName);
     }
 
-    public void load(File file) throws FileNotFoundException {
+    /**
+     * Used to load a game from a file
+     * @param file to load from
+     * @throws FileNotFoundException
+     * @return boolean to confirm load
+     */
+    public boolean load(File file) throws FileNotFoundException {
+        boolean loaded = false;
         application.loadGame(file);
-        this.getState();
+        if (this.getState()) {
+            loaded = true;
+        }
+        return loaded;
     }
 
-    public void getState() {
+    /**
+     * used by load game to update the state of a game after loading a game
+     * @return boolean to confirm update
+     */
+    public boolean getState() {
         gameManager = application.getManagerState();
         gameManager.setBoard(application.getBoard());
         gameManager.setPlayers(application.getPlayers());
         currentPlayer = gameManager.currentPlayer();
+        return true;
     }
 }

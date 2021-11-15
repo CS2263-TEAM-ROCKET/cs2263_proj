@@ -5,6 +5,9 @@ import lombok.*;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * This class holds all the corporations
+ */
 @NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor @ToString
 public class CorporationList {
 
@@ -12,6 +15,10 @@ public class CorporationList {
     @Getter @Setter public List<Corporation> corporations;
 
     //Methods
+
+    /**
+     * Initializes all the corps like they would be in the real game
+     */
     public void initializeCorps() {
         Corporation newCorp = new Corporation("Tower", "Yellow", 200, 2000, 1000);
         corporations.add(newCorp);

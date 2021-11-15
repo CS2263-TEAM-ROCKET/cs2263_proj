@@ -2,6 +2,9 @@ package edu.isu.cs2263.proj.data;
 
 import lombok.*;
 
+/**
+ * Used to make tile objects
+ */
 @NoArgsConstructor @RequiredArgsConstructor @ToString
 public class Tile {
 

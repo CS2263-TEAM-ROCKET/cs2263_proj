@@ -5,6 +5,9 @@ import lombok.*;
 import java.util.List;
 import java.util.ListIterator;
 
+/**
+ * This class is for making Corporation objects
+ */
 @NoArgsConstructor
 public class Corporation {
 
@@ -36,14 +39,31 @@ public class Corporation {
     private final ListIterator<Stock> iterator = stocks.listIterator();
 
     //Methods
+
+    /**
+     * This is used to let players buy stock in a corp
+     * @return stock
+     */
     public Stock playerBuysStock() {
         Stock stock = new Stock();
         if(iterator.hasNext()){
-            stock = (Stock) iterator.next();
+            stock = iterator.next();
         }
         return stock;
     }
 
+    public boolean hasStock() {
+        boolean stocksAreAvailable = false;
+        if (!stocks.isEmpty()) {
+            stocksAreAvailable = true;
+        }
+        return stocksAreAvailable;
+    }
+
+    /**
+     * Returns the corps current stock value for reference
+     * @return int of stock value
+     */
     public int getStockValue() {
         int value = baseStockValue;
         if (tilesOwned == 3) {
@@ -73,6 +93,10 @@ public class Corporation {
         return value;
     }
 
+    /**
+     * Returns the current Majority payout for the corp
+     * @return current majority payout
+     */
     public int getMajorityPayout() {
         int value = baseMajorityPay;
         if (tilesOwned == 3) {
@@ -102,6 +126,10 @@ public class Corporation {
         return value;
     }
 
+    /**
+     * Returns the current minority payout of a corp
+     * @return current minority payout
+     */
     public int getMinorityValue() {
         int value = baseMinorityPay;
         if (tilesOwned == 3) {

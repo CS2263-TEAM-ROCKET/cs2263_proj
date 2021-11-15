@@ -2,11 +2,14 @@ package edu.isu.cs2263.proj.data;
 
 import lombok.*;
 
+/**
+ * Tracks basic game info
+ */
 @NoArgsConstructor @AllArgsConstructor @ToString
 public class GameSettings { // This class is bare but could be added to
 
     //Variables
-    @Getter @Setter public int playerAmount = 0;
+    @Getter @Setter public int playerAmount = 2;
 
     @Getter @Setter public boolean hiddenAssets = false;
 

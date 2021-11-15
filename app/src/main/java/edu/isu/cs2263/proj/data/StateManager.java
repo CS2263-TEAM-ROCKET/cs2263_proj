@@ -20,6 +20,14 @@ public class StateManager {
 
     //Methods
     //Methods for saving
+
+    /**
+     * Saves the game with the current state
+     * @param file full path name of the directory to save to
+     * @param fileName specific file name to make/save
+     * @param state current state to save
+     * @return a boolean to confirm save
+     */
     public boolean saveData(File file, String fileName, StateObject state){
         boolean saved = false;
         try {
@@ -44,6 +52,11 @@ public class StateManager {
         return saved;
     }
 
+    /**
+     * Used to create a file if none already exists
+     * @param file name
+     * @return returns the file to save to
+     */
     private File createFile(String file) {
         File write_file = new File(file);
         try {
@@ -60,6 +73,13 @@ public class StateManager {
     }
 
     //Methods for loading
+
+    /**
+     * Gets the game state from a given file.
+     * @param file to get from
+     * @return the stateObject to load from
+     * @throws FileNotFoundException
+     */
     public StateObject loadData(File file) throws FileNotFoundException {
         Scanner scanner = new Scanner(file);
         StateObject newState = new StateObject();

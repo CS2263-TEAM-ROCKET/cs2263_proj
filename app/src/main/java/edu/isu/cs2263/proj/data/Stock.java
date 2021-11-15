@@ -2,6 +2,9 @@ package edu.isu.cs2263.proj.data;
 
 import lombok.*;
 
+/**
+ * Used to make stock objects
+ */
 @NoArgsConstructor @AllArgsConstructor @ToString
 public class Stock {
 
@@ -13,6 +16,11 @@ public class Stock {
     @Getter @Setter public Player owner;
 
     //Methods
+
+    /**
+     * Gets the current value of the stock
+     * @return an int of the current value
+     */
     public int getValue() {
        return corporation.getStockValue();
     }
