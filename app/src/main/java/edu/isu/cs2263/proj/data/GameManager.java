@@ -93,6 +93,10 @@ public class GameManager {
         board.tileReturn(tile);
     }
 
+    public Corporation merger (Corporation corp1, Corporation corp2) {
+        return board.mergeCorporations(corp1, corp2);
+    }
+
     /**
      * Checks if the game can be ended
      * @return boolean if the game can be ended

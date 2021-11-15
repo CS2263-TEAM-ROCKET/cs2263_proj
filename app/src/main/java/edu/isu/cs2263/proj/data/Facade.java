@@ -106,6 +106,10 @@ public class Facade {
         trader.addTile(tradedTile);
     }
 
+    public Corporation merger (Corporation corp1, Corporation corp2) {
+        return gameManager.merger(corp1, corp2);
+    }
+
     /**
      * Ends the current turn and starts the next
      * @return an int representing the next player
