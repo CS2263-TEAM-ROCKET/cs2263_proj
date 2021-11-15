@@ -5,11 +5,11 @@ import lombok.*;
 /**
  * Used to make stock objects
  */
-@NoArgsConstructor @AllArgsConstructor @ToString
+@NoArgsConstructor @RequiredArgsConstructor @ToString
 public class Stock {
 
     //Variables
-    @Getter @Setter public Corporation corporation;
+    @Getter @Setter @NonNull public Corporation corporation;
 
     @Getter @Setter public int price = 0;
 

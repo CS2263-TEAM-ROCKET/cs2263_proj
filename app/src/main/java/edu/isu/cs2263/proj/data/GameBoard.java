@@ -16,7 +16,7 @@ public class GameBoard {
 
     @Getter @Setter private List<Tile> deck;
 
-    @Getter @Setter private List<Corporation> corporations;
+    @Getter @Setter private CorporationList corporations = new CorporationList();
 
     //Methods
 
@@ -24,6 +24,11 @@ public class GameBoard {
      * Used to initialize the game board tiles
      */
     public void initialize() {
+        initTiles();
+        corporations.initializeCorps();
+    }
+
+    public void initTiles(){
         char tileNum = 1;
         char tileLet = 'A';
         for (int i = 0; i <= 8; i++) {
@@ -69,5 +74,13 @@ public class GameBoard {
      */
     public void tileReturn(Tile tile) {
         deck.add(tile);
+    }
+
+    public void mergeCorporations(Corporation corp1, Corporation corp2) {
+        if(corp1.getTilesOwned() > corp2.getTilesOwned()){
+            for(Tile tiles: playedTiles) {
+                if (tiles.getOwner()
+            }
+        }
     }
 }

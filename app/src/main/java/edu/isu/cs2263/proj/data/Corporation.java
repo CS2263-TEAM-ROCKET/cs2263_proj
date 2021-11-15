@@ -39,7 +39,6 @@ public class Corporation {
     private final ListIterator<Stock> iterator = stocks.listIterator();
 
     //Methods
-
     /**
      * This is used to let players buy stock in a corp
      * @return stock
@@ -58,6 +57,10 @@ public class Corporation {
             stocksAreAvailable = true;
         }
         return stocksAreAvailable;
+    }
+
+    public void addStock(Stock stock) {
+        stocks.add(stock);
     }
 
     /**
