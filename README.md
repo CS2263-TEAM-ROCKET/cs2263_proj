@@ -1,5 +1,5 @@
 # cs2263_proj
-*version 1.0.0*
+*version 1.1.0*
 
 ## Description
 This program is intended to be a fully playable version of the board game Acquire for cs2263 class project.

@@ -9,6 +9,11 @@ import edu.isu.cs2263.proj.data.Facade;
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * This is the main executable for the "acquire" game app
+ * @author TeamRocket
+ * @version %I%, %G%
+ */
 public class App {
 
     public static void basic(){
