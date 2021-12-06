@@ -33,8 +33,8 @@ public class GameBoard {
         deck = new ArrayList<>();
         char tileNum = 1;
         char tileLet = 'A';
-        for (int i = 0; i <= 8; i++) {
-            for (int j = 0; j <= 8; j++) {
+        for (int i = 0; i <= 9; i++) {
+            for (int j = 0; j <= 9; j++) {
                 Tile newTile = new Tile(tileLet, tileNum);
                 deck.add(newTile);
                 tileLet++;
@@ -83,15 +83,17 @@ public class GameBoard {
     }
 
     public void showBoard(){
-        char tileNum = 1;
+        int tileNum = 1;
         char tileLet = 'A';
-        for (int i = 0; i <= 8; i++) {
-            for (int j = 0; j <= 8; j++) {
-                System.out.print(tileLet + tileNum + " ");
-                tileLet++;
+        for (int i = 0; i <= 9; i++) {
+            for (int j = 0; j <= 9; j++) {
+                String let = Character.toString(tileLet);
+                System.out.print(let + tileNum + " ");
+                tileNum++;
             }
             System.out.println();
-            tileNum++;
+            tileLet++;
+            tileNum = 1;
         }
     }
 
