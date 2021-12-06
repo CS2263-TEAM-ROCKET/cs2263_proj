@@ -10,6 +10,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -
 
 
+
+## [1.1.0] - 12-5-2021
+### Added
+-Ui now launches
+
+
+### Changed
+
+
+### Removed
+
+
+
 ## [1.0.0] - 11-14-2021
 ### Added
 -Basic functionality
@@ -41,5 +54,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 [Unreleased]: https://github.com/Zeremer/cs2263_proj.git...Head
-[0.0.1]: https://github.com/Zeremer/cs2263_proj.git...v0.0.0
+[1.1.0]: https://github.com/Zeremer/cs2263_proj.git...v1.1.0
+[1.0.0]: https://github.com/Zeremer/cs2263_proj.git...v1.0.0
 [0.0.1]: https://github.com/Zeremer/cs2263_proj.git...v0.0.0
