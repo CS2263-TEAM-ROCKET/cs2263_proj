@@ -47,7 +47,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-        boolean launchUi = false;
+        boolean launchUi = true;
         if (launchUi){
             FX.classApp(args);
         } else {
